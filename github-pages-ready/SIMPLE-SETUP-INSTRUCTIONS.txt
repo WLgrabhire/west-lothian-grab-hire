@@ -1,0 +1,55 @@
+🚀 SUPER SIMPLE GITHUB PAGES SETUP - NO TECH SKILLS NEEDED!
+
+Just follow these 5 easy steps (takes about 10 minutes):
+
+STEP 1: Create GitHub Account
+- Go to: github.com
+- Click "Sign up" (top right corner)
+- Pick any username (this will be in your website URL)
+- Use your email and make a password
+- Check your email and click the verification link
+
+STEP 2: Create Your Website Repository  
+- After logging in, click the green "New" button
+- Repository name: west-lothian-grab-hire
+- Make sure "Public" is selected
+- Check the box "Add a README file"
+- Click "Create repository"
+
+STEP 3: Upload Your Website Files
+- You'll see a page with some text and buttons
+- Click the blue link that says "uploading an existing file"
+- Drag ALL the files from your github-pages-ready folder into the upload area:
+  * index.html
+  * All the .png and .jpg images
+  * This instruction file
+- Scroll down and click "Commit changes"
+
+STEP 4: Turn On GitHub Pages
+- Click the "Settings" tab (at the top of your repository page)
+- Scroll down the left sidebar and click "Pages"
+- Under "Source", select "Deploy from a branch"
+- Select "main" branch and "/ (root)" folder
+- Click "Save"
+
+STEP 5: Get Your Website URL
+- GitHub will show you a green box with your website URL
+- It will look like: https://yourusername.github.io/west-lothian-grab-hire
+- Wait 2-3 minutes, then click the URL to see your live website!
+
+🎉 THAT'S IT! Your website is now live on the internet!
+
+Your website includes:
+✅ "Skip The Hassle, We'll Grab It" tagline
+✅ 15 years of experience
+✅ SEPA Carriers Licence: WCR/R/3021724  
+✅ Company Number: SC862731
+✅ Professional orange branding
+✅ All 5 pages: Home, Services, About, Customer Portal, Contact
+✅ Contact form that opens email when submitted
+✅ Mobile-friendly design
+
+NEED HELP?
+If you get stuck on any step, just ask Alex to help you with that specific step!
+
+The website will work perfectly and you can share the URL with customers immediately.
