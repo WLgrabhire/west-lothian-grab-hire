@@ -1,0 +1,69 @@
+WEST LOTHIAN GRAB HIRE - GITHUB PAGES QUICK START CHECKLIST
+
+🎯 GOAL: Get www.wlgrabhire.com live in 15 minutes
+
+📋 CHECKLIST:
+
+□ Step 1: Create GitHub Account
+  - Go to github.com
+  - Sign up with sales@wlgrabhire.com
+  - Verify email
+
+□ Step 2: Create Repository  
+  - Click "+" > "New repository"
+  - Name: "wlgrabhire-website"
+  - Make it Public
+  - Add README file
+
+□ Step 3: Upload Files
+  - Click "uploading an existing file"
+  - Drag ALL files from this folder:
+    □ index.html
+    □ WLGH_Logo_stacked_left_4000x2250.png
+    □ WLGH_Logo_inverted_orange_4000x2250 (1).png  
+    □ Business Logo (WL Grab Hire Ltd) /images/BusinessLogo.jpg
+    □ Business Logo (WL Grab Hire Ltd) copy (1).jpg
+    □ download.jpg
+  - Commit changes
+
+□ Step 4: Enable GitHub Pages
+  - Settings > Pages
+  - Source: "Deploy from a branch"
+  - Branch: "main"
+  - Folder: "/ (root)"
+  - Save
+
+□ Step 5: Test GitHub URL
+  - Visit: https://yourusername.github.io/wlgrabhire-website
+  - Verify website works
+
+□ Step 6: Add Custom Domain
+  - Settings > Pages
+  - Custom domain: www.wlgrabhire.com
+  - Save
+  - Check "Enforce HTTPS"
+
+□ Step 7: Update DNS (at your domain registrar)
+  - Add CNAME record:
+    Type: CNAME
+    Name: www  
+    Value: yourusername.github.io
+
+□ Step 8: Wait & Test
+  - Wait 24-48 hours for DNS
+  - Test www.wlgrabhire.com
+  - Verify all pages work
+  - Test contact form
+
+✅ WEBSITE FEATURES INCLUDED:
+- "Skip The Hassle, We'll Grab It" tagline
+- 15 years of experience
+- SEPA Carriers Licence: WCR/R/3021724
+- Company Number: SC862731  
+- Contact form → sales@wlgrabhire.com
+- Mobile-friendly design
+- Professional orange branding
+
+🎉 RESULT: Professional website live at www.wlgrabhire.com
+
+Need help? See COMPLETE-GITHUB-SETUP-GUIDE.md for detailed instructions.
