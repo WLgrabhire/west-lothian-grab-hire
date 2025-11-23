@@ -1,385 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West Lothian Grab Hire Ltd - Skip The Hassle, We'll Grab It</title>
-    <meta name="description" content="West Lothian Grab Hire Ltd - Professional waste removal and grab hire services with 15 years of experience. Skip the hassle, we'll grab it!">
-    <link rel="icon" href="WLGH_Logo_stacked_left_4000x2250.png" type="image/png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo {
-            height: 60px;
-            width: auto;
-        }
-        .company-info h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .tagline {
-            font-size: 1rem;
-            opacity: 0.95;
-            font-style: italic;
-        }
-        .contact-header {
-            text-align: right;
-        }
-        .contact-header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        .contact-header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        /* Navigation */
-        nav {
-            background-color: #2c3e50;
-            padding: 0;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: center;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links li {
-            margin: 0;
-        }
-        .nav-links a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            transition: background-color 0.3s ease;
-            font-weight: 500;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            background-color: #ff6b35;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Business Logo (WL Grab Hire Ltd) copy (1).jpg') center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #ff6b35;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-        .cta-button:hover {
-            background-color: #e55a2b;
-            transform: translateY(-2px);
-        }
-        /* Main Content */
-        main {
-            padding: 60px 0;
-        }
-        .section {
-            margin-bottom: 60px;
-            display: none;
-        }
-        .section.active {
-            display: block;
-        }
-        .section h2 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .section h3 {
-            color: #ff6b35;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h4 {
-            color: #ff6b35;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-        /* About Timeline */
-        .timeline {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        .timeline h4 {
-            color: #ff6b35;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        /* Contact Form */
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #ff6b35;
-        }
-        .submit-btn {
-            background-color: #ff6b35;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-        .submit-btn:hover {
-            background-color: #e55a2b;
-        }
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        .footer-section h3 {
-            color: #ff6b35;
-            margin-bottom: 15px;
-        }
-        .footer-section p,
-        .footer-section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        .footer-section ul {
-            list-style: none;
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            .contact-header {
-                text-align: center;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>West Lothian Grab Hire Ltd</title>
+  <meta name="description" content="West Lothian Grab Hire Ltd - Skip the hassle, we'll grab it." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#e95422;--navy:#123a4d;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;color:var(--navy);background:#fff}
+    .site-header{padding:28px 24px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:16px}
+    .logo img{height:56px}
+    .hero{background:linear-gradient(0deg,rgba(18,58,77,0.6),rgba(18,58,77,0.6)), url('cover/3034b9f4f6394fb79ed7cd3d097ed566.jpg') center/cover no-repeat;min-height:520px;display:flex;align-items:center}
+    .container{max-width:1100px;margin:0 auto;padding:40px}
+    .hero-content{color:#fff;padding:48px 8px}
+    .eyebrow{color:#ffe8de;font-weight:600;margin-bottom:12px}
+    h1{font-size:48px;line-height:1;margin:0 0 18px;font-weight:700;color:#083246}
+    .tagline{font-size:32px;color:var(--orange);font-weight:700;margin:0 0 22px}
+    .lead{max-width:800px;color:#0b2b36;font-size:18px}
+    .cta-row{display:flex;gap:14px;margin-top:26px}
+    .btn{padding:12px 20px;border-radius:8px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-outline{background:transparent;border:2px solid var(--orange);color:var(--orange)}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:36px}
+    .card{background:#fff;padding:22px;border-radius:12px;box-shadow:0 6px 20px rgba(11,22,28,0.06);text-align:center}
+    .card h3{margin:8px 0 4px;font-size:28px;color:var(--navy)}
+    .card p{color:var(--muted);margin:0}
+    main{padding:48px 24px}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .feature{background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(11,22,28,0.04)}
+    footer{background:var(--navy);color:#fff;padding:28px 24px}
+    @media (max-width:720px){h1{font-size:32px}.tagline{font-size:22px}.hero{min-height:420px}.site-header{padding:18px}.container{padding:24px}}
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
-                    <img src="WLGH_Logo_inverted_orange_4000x2250 (1).png" alt="West Lothian Grab Hire Logo" class="logo">
-                    <div class="company-info">
-                        <h1>West Lothian Grab Hire Ltd</h1>
-                        <p class="tagline">Skip The Hassle, We'll Grab It</p>
-                    </div>
-                </div>
-                <div class="contact-header">
-                    <h2>07123 456789</h2>
-                    <p>sales@wlgrabhire.com</p>
-                </div>
-            </div>
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div class="logo">
+        <img src="WLGH_Logo_inverted_orange_4000x2250 (1).png" alt="WL Grab Hire logo" />
+        <div style="font-weight:700;color:var(--navy)">West Lothian Grab Hire Ltd</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:700;color:var(--navy);">01506 332088</div>
+        <div style="color:var(--muted);font-size:14px">sales@wlgrabhire.com</div>
+      </div>
+    </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showSection('home')" class="nav-link active">Home</a></li>
-                    <li><a href="#" onclick="showSection('services')" class="nav-link">Services</a></li>
-                    <li><a href="#" onclick="showSection('about')" class="nav-link">About</a></li>
-                    <li><a href="#" onclick="showSection('portal')" class="nav-link">Customer Portal</a></li>
-                    <li><a href="#" onclick="showSection('contact')" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Professional Operators • Modern Equipment</div>
+        <h1>West Lothian <span style="color:var(--navy)">Grab Hire Ltd</span></h1>
+        <div class="tagline">SKIP THE HASSLE, WE'LL GRAB IT.</div>
+        <p class="lead">Reliable, efficient and fully licensed grab hire and waste removal services across West Lothian and surrounding areas. Same-day collections, competitive pricing and fully insured operators.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get Free Quote</a>
+          <a class="btn btn-outline" href="tel:01506332088">Call Now: 01506 332088</a>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Professional Waste Removal & Grab Hire</h2>
-            <p>Reliable, efficient, and professional waste management services across West Lothian and surrounding areas</p>
-            <a href="#" onclick="showSection('contact')" class="cta-button">Get Free Quote</a>
+        <div class="stats" style="margin-top:28px">
+          <div class="card"><div style="font-size:14px;color:#ff7043">Years</div><h3>30+</h3><p>Years in Business</p></div>
+          <div class="card"><div style="font-size:14px;color:#ff7043">Clients</div><h3>500+</h3><p>Satisfied Clients</p></div>
+          <div class="card"><div style="font-size:14px;color:#ff7043">Fleet</div><h3>Modern</h3><p>Well-maintained vehicles</p></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Main Content -->
-    <main>
-        <div class="container">
-            <!-- Home Section -->
-            <section id="home" class="section active">
-                <h2>Welcome to West Lothian Grab Hire</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
-                    With 15 years of experience in waste management and grab hire services, we provide reliable, 
-                    professional solutions for all your waste removal needs across West Lothian and beyond.
-                </p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>🚛 Grab Hire Services</h4>
-                        <p>Professional grab lorry hire for construction sites, home renovations, and commercial projects. Quick, efficient, and cost-effective waste removal.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>🏗️ Construction Waste</h4>
-                        <p>Specialized handling of construction and demolition waste. We ensure proper disposal and recycling of all materials according to regulations.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>🏡 Domestic Clearance</h4>
-                        <p>House clearances, garden waste removal, and general domestic waste collection. Perfect for home renovations and decluttering projects.</p>
-                    </div>
-                </div>
-            </section>
-            <!-- Services Section -->
-            <section id="services" class="section">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Grab Hire & Waste Removal</h4>
-                        <p>Our modern grab lorries can collect up to 16 tonnes of waste in a single visit. Perfect for:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Construction site clearance</li>
-                            <li>Garden waste and soil removal</li>
-                            <li>House renovation projects</li>
-                            <li>Commercial waste collection</li>
-                        </ul>
-                    </div>
-                    <div class="service-card">
-                        <h4>Skip Hire Alternative</h4>
-                        <p>Why wait for a skip when we can collect your waste immediately? Our grab hire service offers:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Same-day collection available</li>
-                            <li>No permit required
+  <main>
+    <div class="container">
+      <section style="margin-bottom:28px">
+        <h2 style="margin:0 0 14px">Our Services</h2>
+        <div class="features">
+          <div class="feature"><h4>Grab Hire & Waste Removal</h4><p>Up to 16 tonnes per visit. Construction, garden and commercial waste.</p></div>
+          <div class="feature"><h4>Skip Hire Alternative</h4><p>Load & go service with no permits required for many jobs.</p></div>
+          <div class="feature"><h4>Aggregates Delivery</h4><p>Sand, gravel, topsoil and recycled materials supplied to site.</p></div>
+          <div class="feature"><h4>Commercial Contracts</h4><p>Regular collections, emergency callouts and trade pricing.</p></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 style="margin:0 0 14px">Contact Us</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+          <div class="card"><h3>📞 Phone</h3><p><strong>01506 332088</strong></p></div>
+          <div class="card"><h3>📧 Email</h3><p><strong>sales@wlgrabhire.com</strong></p></div>
+          <div class="card"><h3>📍 Service Area</h3><p>West Lothian, Livingston, Bathgate, Linlithgow</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+      <div>
+        <div style="font-weight:700">West Lothian Grab Hire Ltd</div>
+        <div style="color:#cbd5e1;font-size:13px">SEPA Carriers Licence: WCR/R/3021724 | Company Number: SC862731</div>
+      </div>
+      <div style="text-align:right;color:#cbd5e1;font-size:13px">© 2025 West Lothian Grab Hire Ltd</div>
+    </div>
+  </footer>
+
+</body>
+</html>
