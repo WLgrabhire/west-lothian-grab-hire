@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — WL Grab Hire</title>
   <link rel="stylesheet" href="/assets/css/styles.css" />
+  <style>
+    /* Honeypot: visually hidden but still present for bots to fill */
+    .hp-field {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+    .form-status--success { color: green; }
+    .form-status--error { color: crimson; }
+  </style>
 </head>
 <body>
   <!-- Keep your existing header/navigation -->
@@ -16,6 +29,15 @@
       <form id="quote-form" class="quote-form" novalidate>
         <!-- Optional hidden subject for the forwarded email -->
         <input type="hidden" name="_subject" value="Quote request from WL Grab Hire website" />
+
+        <!-- Honeypot anti-spam field: real users won't see or interact with this.
+             Bots that fill it will be treated as spam by client-side code. -->
+        <div class="hp-field" aria-hidden="true">
+          <label>
+            Leave this field blank
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+        </div>
 
         <label>
           Your name
