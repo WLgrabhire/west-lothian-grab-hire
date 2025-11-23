@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — WL Grab Hire</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <!-- Keep your existing header/navigation -->
+
+  <main>
+    <section id="contact">
+      <h1>Request a Quote</h1>
+
+      <form id="quote-form" class="quote-form" novalidate>
+        <!-- Optional hidden subject for the forwarded email -->
+        <input type="hidden" name="_subject" value="Quote request from WL Grab Hire website" />
+
+        <label>
+          Your name
+          <input type="text" name="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          Phone
+          <input type="tel" name="phone" />
+        </label>
+
+        <label>
+          Details / Job description
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit">Send Request</button>
+      </form>
+
+      <div id="form-status" aria-live="polite" style="margin-top:1rem;"></div>
+    </section>
+  </main>
+
+  <script src="/assets/js/contact-form.js"></script>
+</body>
+</html>
