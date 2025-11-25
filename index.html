@@ -1,734 +1,720 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West Lothian Grab Hire Ltd - Skip The Hassle, We'll Grab It</title>
-    <meta name="description" content="West Lothian Grab Hire Ltd - Professional waste removal and grab hire services with 15 years of experience. Skip the hassle, we'll grab it!">
-    <link rel="icon" href="WLGH_Logo_stacked_left_4000x2250.png" type="image/png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Floating WhatsApp Button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-        
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-        }
-        
-        .floating-whatsapp span {
-            font-size: 24px;
-            color: white;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .company-info h1 {
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            font-style: italic;
-        }
-        
-        .contact-header {
-            text-align: right;
-        }
-        
-        .contact-header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        
-        .contact-header p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .whatsapp-header {
-            font-size: 0.8rem;
-            margin-top: 5px;
-        }
-        
-        .whatsapp-header a {
-            color: #25D366;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: #2c3e50;
-            padding: 0;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-links li {
-            margin: 0;
-        }
-        
-        .nav-links a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            transition: background-color 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            background-color: #ff6b35;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Business Logo (WL Grab Hire Ltd) copy (1).jpg') center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #ff6b35;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-        
-        .cta-button:hover {
-            background-color: #e55a2b;
-            transform: translateY(-2px);
-        }
-        
-        /* Main Content */
-        main {
-            padding: 60px 0;
-        }
-        
-        .section {
-            margin-bottom: 60px;
-            display: none;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        .section h2 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .section h3 {
-            color: #ff6b35;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-card h4 {
-            color: #ff6b35;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-        
-        /* About Timeline */
-        .timeline {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        
-        .timeline h4 {
-            color: #ff6b35;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Contact Options */
-        .contact-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 3px solid #f0f0f0;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .contact-card h3 {
-            color: #ff6b35;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .contact-btn {
-            display: inline-block;
-            background-color: #ff6b35;
-            color: white !important;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 10px 0;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .contact-btn:hover {
-            background-color: #e55a2b;
-        }
-        
-        .whatsapp-card {
-            border: 3px solid #25D366 !important;
-        }
-        
-        .whatsapp-card h3 {
-            color: #25D366 !important;
-        }
-        
-        .whatsapp-btn {
-            background-color: #25D366 !important;
-            color: white !important;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #1da851 !important;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            color: #ff6b35;
-            margin-bottom: 15px;
-        }
-        
-        .footer-section p,
-        .footer-section li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .contact-header {
-                text-align: center;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .services-grid,
-            .contact-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-whatsapp {
-                bottom: 15px;
-                right: 15px;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .floating-whatsapp span {
-                font-size: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/447734146145?text=Hi%20West%20Lothian%20Grab%20Hire,%20I%20need%20a%20quote%20for%20waste%20removal.%20Please%20contact%20me." target="_blank" class="floating-whatsapp" title="WhatsApp Us - 07734 146145">
-        <span>💬</span>
-    </a>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="company-info">
-                    <h1>West Lothian Grab Hire Ltd</h1>
-                    <p class="tagline">Skip The Hassle, We'll Grab It</p>
-                </div>
-                <div class="contact-header">
-                    <h2><a href="tel:01506332088" style="color: white; text-decoration: none;">01506 332088</a></h2>
-                    <p><a href="mailto:sales@wlgrabhire.com" style="color: rgba(255,255,255,0.9); text-decoration: none;">sales@wlgrabhire.com</a></p>
-                    <p class="whatsapp-header">💬 <a href="https://wa.me/447734146145" target="_blank">WhatsApp: 07734 146145</a></p>
-                    <p class="whatsapp-header">📘 <a href="https://https://www.facebook.com/profile.php?id=61584250770523" target="_blank" style="color: #4267B2;">Facebook</a></p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showSection('home'); return false;" class="nav-link active">Home</a></li>
-                    <li><a href="#" onclick="showSection('services'); return false;" class="nav-link">Services</a></li>
-                    <li><a href="#" onclick="showSection('about'); return false;" class="nav-link">About</a></li>
-                    <li><a href="#" onclick="showSection('portal'); return false;" class="nav-link">Customer Portal</a></li>
-                    <li><a href="#" onclick="showSection('contact'); return false;" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Professional Waste Removal & Grab Hire</h2>
-            <p>Reliable, efficient, and professional waste management services across West Lothian and surrounding areas</p>
-            <a href="#" onclick="showSection('contact'); return false;" class="cta-button">Get Free Quote</a>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main>
-        <div class="container">
-            <!-- Home Section -->
-            <section id="home" class="section active">
-                <h2>Welcome to West Lothian Grab Hire</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
-                    With 15 years of experience in waste management and grab hire services, we provide reliable, 
-                    professional solutions for all your waste removal needs across West Lothian and beyond.
-                </p>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>🚛 Grab Hire Services</h4>
-                        <p>Professional grab lorry hire for construction sites, home renovations, and commercial projects. Quick, efficient, and cost-effective waste removal.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>🏗️ Construction Waste</h4>
-                        <p>Specialized handling of construction and demolition waste. We ensure proper disposal and recycling of all materials according to regulations.</p>
-                    </div>
-                    <div class="service-card">
-                        <h4>🏡 Domestic Clearance</h4>
-                        <p>House clearances, garden waste removal, and general domestic waste collection. Perfect for home renovations and decluttering projects.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Section -->
-            <section id="services" class="section">
-                <h2>Our Services</h2>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h4>Grab Hire & Waste Removal</h4>
-                        <p>Our modern grab lorries can collect up to 16 tonnes of waste in a single visit. Perfect for:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Construction site clearance</li>
-                            <li>Garden waste and soil removal</li>
-                            <li>House renovation projects</li>
-                            <li>Commercial waste collection</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h4>Skip Hire Alternative</h4>
-                        <p>Why wait for a skip when we can collect your waste immediately? Our grab hire service offers:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Same-day collection available</li>
-                            <li>No permit required</li>
-                            <li>Load and go service</li>
-                            <li>Competitive pricing</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h4>Aggregates & Materials</h4>
-                        <p>We also supply quality aggregates and construction materials:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Sand and gravel</li>
-                            <li>Topsoil and hardcore</li>
-                            <li>Decorative stones</li>
-                            <li>Recycled materials</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h4>Commercial Services</h4>
-                        <p>Tailored solutions for businesses and contractors:</p>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            <li>Regular collection schedules</li>
-                            <li>Emergency callouts</li>
-                            <li>Competitive trade rates</li>
-                            <li>Waste transfer notes provided</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="section">
-                <h2>About West Lothian Grab Hire</h2>
-                
-                <div class="timeline">
-                    <h4>15 Years of Excellence</h4>
-                    <p>
-                        West Lothian Grab Hire Ltd has been serving the local community for 15 years, building a reputation 
-                        for reliability, professionalism, and competitive pricing. Our experienced team understands the 
-                        importance of efficient waste management for both domestic and commercial clients.
-                    </p>
-                </div>
-                
-                <div class="timeline">
-                    <h4>Our Mission</h4>
-                    <p>
-                        To provide the most reliable and cost-effective waste removal and grab hire services in West Lothian 
-                        and surrounding areas. We believe in making waste management simple - "Skip The Hassle, We'll Grab It."
-                    </p>
-                </div>
-                
-                <div class="timeline">
-                    <h4>Why Choose Us?</h4>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li><strong>Fully Licensed:</strong> All necessary permits and waste carrier licenses</li>
-                        <li><strong>Insured:</strong> Comprehensive insurance coverage for peace of mind</li>
-                        <li><strong>Professional:</strong> Uniformed, courteous, and experienced operators</li>
-                        <li><strong>Flexible:</strong> Same-day service and emergency callouts available</li>
-                        <li><strong>Competitive:</strong> Fair, transparent pricing with no hidden costs</li>
-                        <li><strong>Environmental:</strong> Committed to responsible waste disposal and recycling</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Customer Portal Section -->
-            <section id="portal" class="section">
-                <h2>Customer Portal</h2>
-                
-                <div class="timeline">
-                    <h4>Track Your Service</h4>
-                    <p>
-                        Our customer portal allows you to manage your bookings, track collection schedules, 
-                        and access important documentation including waste transfer notes and invoices.
-                    </p>
-                </div>
-                
-                <div class="timeline">
-                    <h4>Online Booking</h4>
-                    <p>
-                        Book your grab hire service online 24/7. Simply select your preferred date and time, 
-                        specify your requirements, and we'll confirm your booking promptly.
-                    </p>
-                </div>
-                
-                <div class="timeline">
-                    <h4>Account Management</h4>
-                    <p>
-                        Regular customers can set up accounts for streamlined booking, automatic invoicing, 
-                        and access to preferential rates for frequent users.
-                    </p>
-                </div>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#" onclick="showSection('contact'); return false;" class="cta-button">Contact Us to Set Up Account</a>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="section">
-                <h2>Get Your Free Quote</h2>
-                
-                <div class="contact-options">
-                    <div class="contact-card">
-                        <h3>📞 Call Now</h3>
-                        <p>Speak directly with our team for immediate quotes and same-day service availability.</p>
-                        <a href="tel:01506332088" class="contact-btn">01506 332088</a>
-                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                            <strong>Hours:</strong> Mon-Fri 8AM-5PM | Sat 8AM-1PM
-                        </p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h3>📧 Email Quote</h3>
-                        <p>Send us your project details and we'll provide a detailed quote within 2 hours.</p>
-                        <a href="mailto:sales@wlgrabhire.com?subject=Quote Request - West Lothian Grab Hire&body=Hello,%0D%0A%0D%0APlease provide a quote for the following:%0D%0A%0D%0AName:%0D%0APhone:%0D%0AService Required:%0D%0ALocation (with postcode):%0D%0APreferred Date:%0D%0AProject Details:%0D%0A%0D%0AThank you!" class="contact-btn">📧 Email Quote Request</a>
-                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                            <strong>Response:</strong> Within 2 hours during business hours
-                        </p>
-                    </div>
-                    
-                    <div class="contact-card whatsapp-card">
-                        <h3>💬 WhatsApp</h3>
-                        <p>Get instant responses and quick quotes through WhatsApp messaging.</p>
-                        <a href="https://wa.me/447734146145?text=Hi%20West%20Lothian%20Grab%20Hire,%20I%20need%20a%20quote%20for%20waste%20removal.%20Please%20contact%20me." target="_blank" class="contact-btn whatsapp-btn">💬 WhatsApp Quote</a>
-                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                            <strong>Number:</strong> 07734 146145<br>
-                            <strong>Response:</strong> Usually within 15 minutes
-                        </p>
-                    </div>
-                </div>
-                
-                <div style="background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-top: 40px; text-align: center;">
-                    <h3 style="color: #ff6b35; margin-bottom: 20px;">Service Areas</h3>
-                    <p style="font-size: 1.1rem; margin-bottom: 15px;">
-                        <strong>Primary Areas:</strong> West Lothian, Edinburgh, Falkirk, Stirling
-                    </p>
-                    <p style="font-size: 1rem; color: #666;">
-                        We also serve surrounding areas - call to check availability in your location
-                    </p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>West Lothian Grab Hire Ltd</h3>
-                    <p>Professional waste removal and grab hire services across West Lothian and surrounding areas.</p>
-                    <p><strong>Skip The Hassle, We'll Grab It</strong></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Information</h3>
-                    <ul>
-                        <li>📞 Phone: <a href="tel:01506332088" style="color: #ff6b35; text-decoration: none;">01506 332088</a></li>
-                        <li>📧 Email: <a href="mailto:sales@wlgrabhire.com" style="color: #ff6b35; text-decoration: none;">sales@wlgrabhire.com</a></li>
-                        <li>💬 WhatsApp: <a href="https://wa.me/447734146145" style="color: #ff6b35; text-decoration: none;">07734 146145</a></li>
-                        
-<a
- 
-  target="_blank"
-  rel="noopener noreferrer"
-
-
-  style="display:inline-flex;align-items:center;gap:10px;padding:9px 14px;background:#1877F2;color:#fff;border-radius:7px;text-decoration:none;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;font-weight:600;font-size:14px;box-shadow:0 1px 3px rgba(0,0,0,0.12);transition:transform .06s ease,opacity .12s ease;"
-  onmouseover="this.style.transform='translateY(-1px)';this.style.opacity='0.98';"
-  onmouseout="this.style.transform='';this.style.opacity='1';"
-  onmousedown="this.style.transform='translateY(0)';this.style.opacity='0.95';"
->
-  <span style="display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;flex:0 0 auto;" aria-hidden="true">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.99 3.66 9.12 8.44 9.92v-7.02H8.03v-2.9h2.27V9.41c0-2.25 1.34-3.49 3.39-3.49.98 0 2.01.18 2.01.18v2.21h-1.13c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.9h-2.1V22c4.78-.8 8.44-4.93 8.44-9.93z" fill="currentColor"/>
-    </svg>
-  </span>
-  <span style="line-height:1;">Facebook</span>
-</a>" target="_blank" style="color: #ff6b35; text-decoration: none;">West Lothian Grab Hire</a></li>
-                        <li>🕒 Hours: Mon-Fri 8AM-5PM, Sat 8AM-1PM</li>
-                        <li>📍 Serving West Lothian & Surrounding Areas</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li>Grab Hire & Waste Collection</li>
-                        <li>Construction Waste Removal</li>
-                        <li>Domestic Clearance</li>
-                        <li>Aggregates & Materials Supply</li>
-                        <li>Commercial Waste Services</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Legal Information</h3>
-                    <ul>
-                        <li><strong>SEPA Carriers Licence:</strong> WCR/R/3021724</li>
-                        <li><strong>Company Number:</strong> SC862731</li>
-                        <li>Fully Insured & Licensed</li>
-                        <li>Environmental Compliance</li>
-                    </ul>
-                </div>
-            </div>
-            
-            </p><div class="footer-bottom"
-  <p>2025 West Lothian Grab Hire Ltd. All rights reserved. | SEPA Carriers Licence: WCR/R/3021724 | Company Number: SC862731 | </p>™ West Lothian Grab Hire Ltd. Website created by Graeme Jack.</p>
-</div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            var sections = document.querySelectorAll('.section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active');
-            }
-            
-            // Remove active class from all nav links
-            var navLinks = document.querySelectorAll('.nav-link');
-            for (var i = 0; i < navLinks.length; i++) {
-                navLinks[i].classList.remove('active');
-            }
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked nav link
-            var clickedLinks = document.querySelectorAll('[onclick*="' + sectionId + '"]');
-            if (clickedLinks.length > 0) {
-                clickedLinks[0].classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 0000000..0000000
+--- a/index.html
++++ b/index.html
+@@ -1,999 +1,999 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>West Lothian Grab Hire Ltd - Skip The Hassle, We'll Grab It</title>
++    <meta name="description" content="West Lothian Grab Hire Ltd - Professional waste removal and grab hire services with 15 years of experience. Skip the hassle, we'll grab it!">
++    <link rel="icon" href="WLGH_Logo_stacked_left_4000x2250.png" type="image/png">
++    <style>
++        * {
++            margin: 0;
++            padding: 0;
++            box-sizing: border-box;
++        }
++        
++        body {
++            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
++            line-height: 1.6;
++            color: #333;
++            background-color: #f8f9fa;
++        }
++        
++        .container {
++            max-width: 1200px;
++            margin: 0 auto;
++            padding: 0 20px;
++        }
++        
++        /* Floating WhatsApp Button */
++        .floating-whatsapp {
++            position: fixed;
++            bottom: 20px;
++            right: 20px;
++            width: 60px;
++            height: 60px;
++            background-color: #25D366;
++            border-radius: 50%;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
++            z-index: 1000;
++            text-decoration: none;
++            transition: transform 0.3s ease;
++        }
++        
++        .floating-whatsapp:hover {
++            transform: scale(1.1);
++        }
++        
++        .floating-whatsapp span {
++            font-size: 24px;
++            color: white;
++        }
++        
++        /* Header */
++        header {
++            background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
++            color: white;
++            padding: 1rem 0;
++            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
++        }
++        
++        .header-content {
++            display: flex;
++            justify-content: space-between;
++            align-items: center;
++            flex-wrap: wrap;
++        }
++        
++        .company-info h1 {
++            font-size: 2.2rem;
++            font-weight: bold;
++            margin-bottom: 5px;
++        }
++        
++        .tagline {
++            font-size: 1.2rem;
++            opacity: 0.95;
++            font-style: italic;
++        }
++        
++        .contact-header {
++            text-align: right;
++        }
++        
++        .contact-header h2 {
++            font-size: 1.5rem;
++            margin-bottom: 5px;
++        }
++        
++        .contact-header p {
++            font-size: 0.9rem;
++            opacity: 0.9;
++        }
++        
++        .whatsapp-header {
++            font-size: 0.8rem;
++            margin-top: 5px;
++        }
++        
++        .whatsapp-header a {
++            color: #25D366;
++            text-decoration: none;
++            font-weight: bold;
++        }
++        
++        /* Navigation */
++        nav {
++            background-color: #2c3e50;
++            padding: 0;
++        }
++        
++        .nav-container {
++            display: flex;
++            justify-content: center;
++        }
++        
++        .nav-links {
++            display: flex;
++            list-style: none;
++            margin: 0;
++            padding: 0;
++        }
++        
++        .nav-links li {
++            margin: 0;
++        }
++        
++        .nav-links a {
++            display: block;
++            color: white;
++            text-decoration: none;
++            padding: 15px 25px;
++            transition: background-color 0.3s ease;
++            font-weight: 500;
++        }
++        
++        .nav-links a:hover,
++        .nav-links a.active {
++            background-color: #ff6b35;
++        }
++        
++        /* Hero Section */
++        .hero {
++            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('Business Logo (WL Grab Hire Ltd) copy (1).jpg') center/cover;
++            color: white;
++            text-align: center;
++            padding: 100px 0;
++        }
++        
++        .hero h2 {
++            font-size: 3rem;
++            margin-bottom: 20px;
++            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
++        }
++        
++        .hero p {
++            font-size: 1.3rem;
++            margin-bottom: 30px;
++            max-width: 600px;
++            margin-left: auto;
++            margin-right: auto;
++        }
++        
++        .cta-button {
++            display: inline-block;
++            background-color: #ff6b35;
++            color: white;
++            padding: 15px 30px;
++            text-decoration: none;
++            border-radius: 5px;
++            font-size: 1.1rem;
++            font-weight: bold;
++            transition: background-color 0.3s ease;
++            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
++        }
++        
++        .cta-button:hover {
++            background-color: #e55a2b;
++            transform: translateY(-2px);
++        }
++        
++        /* Main Content */
++        main {
++            padding: 60px 0;
++        }
++        
++        .section {
++            margin-bottom: 60px;
++            display: none;
++        }
++        
++        .section.active {
++            display: block;
++        }
++        
++        .section h2 {
++            color: #2c3e50;
++            font-size: 2.5rem;
++            margin-bottom: 30px;
++            text-align: center;
++        }
++        
++        .section h3 {
++            color: #ff6b35;
++            font-size: 1.8rem;
++            margin-bottom: 20px;
++        }
++        
++        /* Services Grid */
++        .services-grid {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
++            gap: 30px;
++            margin-top: 40px;
++        }
++        
++        .service-card {
++            background: white;
++            padding: 30px;
++            border-radius: 10px;
++            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
++            transition: transform 0.3s ease;
++        }
++        
++        .service-card:hover {
++            transform: translateY(-5px);
++        }
++        
++        .service-card h4 {
++            color: #ff6b35;
++            font-size: 1.4rem;
++            margin-bottom: 15px;
++        }
++        
++        /* About Timeline */
++        .timeline {
++            background: white;
++            padding: 40px;
++            border-radius: 10px;
++            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
++            margin: 30px 0;
++        }
++        
++        .timeline h4 {
++            color: #ff6b35;
++            font-size: 1.5rem;
++            margin-bottom: 15px;
++        }
++        
++        /* Contact Options */
++        .contact-options {
++            display: grid;
++            grid-template-columns: repeat(3, 1fr);
++            gap: 30px;
++            margin-top: 40px;
++        }
++        
++        .contact-card {
++            background: white;
++            padding: 40px;
++            border-radius: 10px;
++            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
++            text-align: center;
++            transition: transform 0.3s ease;
++            border: 3px solid #f0f0f0;
++        }
++        
++        .contact-card:hover {
++            transform: translateY(-5px);
++        }
++        
++        .contact-card h3 {
++            color: #ff6b35;
++            font-size: 1.5rem;
++            margin-bottom: 20px;
++        }
++        
++        .contact-btn {
++            display: inline-block;
++            background-color: #ff6b35;
++            color: white !important;
++            padding: 15px 30px;
++            text-decoration: none;
++            border-radius: 5px;
++            font-size: 1.1rem;
++            font-weight: bold;
++            transition: all 0.3s ease;
++            margin: 10px 0;
++            border: none;
++            cursor: pointer;
++        }
++        
++        .contact-btn:hover {
++            background-color: #e55a2b;
++        }
++        
++        .whatsapp-card {
++            border: 3px solid #25D366 !important;
++        }
++        
++        .whatsapp-card h3 {
++            color: #25D366 !important;
++        }
++        
++        .whatsapp-btn {
++            background-color: #25D366 !important;
++            color: white !important;
++        }
++        
++        .whatsapp-btn:hover {
++            background-color: #1da851 !important;
++        }
++        
++        /* Footer */
++        footer {
++            background-color: #2c3e50;
++            color: white;
++            padding: 40px 0 20px;
++            margin-top: 60px;
++        }
++        
++        .footer-content {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
++            gap: 30px;
++            margin-bottom: 30px;
++        }
++        
++        .footer-section h3 {
++            color: #ff6b35;
++            margin-bottom: 15px;
++        }
++        
++        .footer-section p,
++        .footer-section li {
++            margin-bottom: 8px;
++            line-height: 1.6;
++        }
++        
++        .footer-section ul {
++            list-style: none;
++        }
++        
++        .footer-bottom {
++            text-align: center;
++            padding-top: 20px;
++            border-top: 1px solid #34495e;
++            font-size: 0.9rem;
++            opacity: 0.8;
++        }
++        
++        /* Responsive Design */
++        @media (max-width: 768px) {
++            .header-content {
++                flex-direction: column;
++                text-align: center;
++                gap: 20px;
++            }
++            
++            .contact-header {
++                text-align: center;
++            }
++            
++            .nav-links {
++                flex-wrap: wrap;
++                justify-content: center;
++            }
++            
++            .hero h2 {
++                font-size: 2rem;
++            }
++            
++            .hero p {
++                font-size: 1.1rem;
++            }
++            
++            .services-grid,
++            .contact-options {
++                grid-template-columns: 1fr;
++            }
++            
++            .floating-whatsapp {
++                bottom: 15px;
++                right: 15px;
++                width: 50px;
++                height: 50px;
++            }
++            
++            .floating-whatsapp span {
++                font-size: 20px;
++            }
++        }
++    </style>
++</head>
++<body>
++    <!-- Floating WhatsApp Button -->
++    <a href="https://wa.me/447734146145?text=Hi%20West%20Lothian%20Grab%20Hire,%20I%20need%20a%20quote%20for%20waste%20removal.%20Please%20contact%20me." target="_blank" class="floating-whatsapp" title="WhatsApp Us - 07734 146145">
++        <span>💬</span>
++    </a>
++
++    <!-- Header -->
++    <header>
++        <div class="container">
++            <div class="header-content">
++                <div class="company-info">
++                    <h1>West Lothian Grab Hire Ltd</h1>
++                    <p class="tagline">Skip The Hassle, We'll Grab It</p>
++                </div>
++                <div class="contact-header">
++                    <h2><a href="tel:01506332088" style="color: white; text-decoration: none;">01506 332088</a></h2>
++                    <p><a href="mailto:sales@wlgrabhire.com" style="color: rgba(255,255,255,0.9); text-decoration: none;">sales@wlgrabhire.com</a></p>
++                    <p class="whatsapp-header">💬 <a href="https://wa.me/447734146145" target="_blank">WhatsApp: 07734 146145</a></p>
++                </div>
++            </div>
++        </div>
++    </header>
++
++    <!-- Navigation -->
++    <nav>
++        <div class="container">
++            <div class="nav-container">
++                <ul class="nav-links">
++                    <li><a href="#" onclick="showSection('home'); return false;" class="nav-link active">Home</a></li>
++                    <li><a href="#" onclick="showSection('services'); return false;" class="nav-link">Services</a></li>
++                    <li><a href="#" onclick="showSection('about'); return false;" class="nav-link">About</a></li>
++                    <li><a href="#" onclick="showSection('portal'); return false;" class="nav-link">Customer Portal</a></li>
++                    <li><a href="#" onclick="showSection('contact'); return false;" class="nav-link">Contact</a></li>
++                </ul>
++            </div>
++        </div>
++    </nav>
++
++    <!-- Hero Section -->
++    <section class="hero">
++        <div class="container">
++            <h2>Professional Waste Removal & Grab Hire</h2>
++            <p>Reliable, efficient, and professional waste management services across West Lothian and surrounding areas</p>
++            <a href="#" onclick="showSection('contact'); return false;" class="cta-button">Get Free Quote</a>
++        </div>
++    </section>
++
++    <!-- Main Content -->
++    <main>
++        <div class="container">
++            <!-- Home Section -->
++            <section id="home" class="section active">
++                <h2>Welcome to West Lothian Grab Hire</h2>
++                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">
++                    With 15 years of experience in waste management and grab hire services, we provide reliable, 
++                    professional solutions for all your waste removal needs across West Lothian and beyond.
++                </p>
++                
++                <div class="services-grid">
++                    <div class="service-card">
++                        <h4>🚛 Grab Hire Services</h4>
++                        <p>Professional grab lorry hire for construction sites, home renovations, and commercial projects. Quick, efficient, and cost-effective waste removal.</p>
++                    </div>
++                    <div class="service-card">
++                        <h4>🏗️ Construction Waste</h4>
++                        <p>Specialized handling of construction and demolition waste. We ensure proper disposal and recycling of all materials according to regulations.</p>
++                    </div>
++                    <div class="service-card">
++                        <h4>🏡 Domestic Clearance</h4>
++                        <p>House clearances, garden waste removal, and general domestic waste collection. Perfect for home renovations and decluttering projects.</p>
++                    </div>
++                </div>
++            </section>
++
++            <!-- Services Section -->
++            <section id="services" class="section">
++                <h2>Our Services</h2>
++                
++                <div class="services-grid">
++                    <div class="service-card">
++                        <h4>Grab Hire & Waste Removal</h4>
++                        <p>Our modern grab lorries can collect up to 16 tonnes of waste in a single visit. Perfect for:</p>
++                        <ul style="margin-top: 10px; padding-left: 20px;">
++                            <li>Construction site clearance</li>
++                            <li>Garden waste and soil removal</li>
++                            <li>House renovation projects</li>
++                            <li>Commercial waste collection</li>
++                        </ul>
++                    </div>
++                    
++                    <div class="service-card">
++                        <h4>Skip Hire Alternative</h4>
++                        <p>Why wait for a skip when we can collect your waste immediately? Our grab hire service offers:</p>
++                        <ul style="margin-top: 10px; padding-left: 20px;">
++                            <li>Same-day collection available</li>
++                            <li>No permit required</li>
++                            <li>Load and go service</li>
++                            <li>Competitive pricing</li>
++                        </ul>
++                    </div>
++                    
++                    <div class="service-card">
++                        <h4>Aggregates & Materials</h4>
++                        <p>We also supply quality aggregates and construction materials:</p>
++                        <ul style="margin-top: 10px; padding-left: 20px;">
++                            <li>Sand and gravel</li>
++                            <li>Topsoil and hardcore</li>
++                            <li>Decorative stones</li>
++                            <li>Recycled materials</li>
++                        </ul>
++                    </div>
++                    
++                    <div class="service-card">
++                        <h4>Commercial Services</h4>
++                        <p>Tailored solutions for businesses and contractors:</p>
++                        <ul style="margin-top: 10px; padding-left: 20px;">
++                            <li>Regular collection schedules</li>
++                            <li>Emergency callouts</li>
++                            <li>Competitive trade rates</li>
++                            <li>Waste transfer notes provided</li>
++                        </ul>
++                    </div>
++                </div>
++            </section>
++
++            <!-- About Section -->
++            <section id="about" class="section">
++                <h2>About West Lothian Grab Hire</h2>
++                
++                <div class="timeline">
++                    <h4>15 Years of Excellence</h4>
++                    <p>
++                        West Lothian Grab Hire Ltd has been serving the local community for 15 years, building a reputation 
++                        for reliability, professionalism, and competitive pricing. Our experienced team understands the 
++                        importance of efficient waste management for both domestic and commercial clients.
++                    </p>
++                </div>
++                
++                <div class="timeline">
++                    <h4>Our Mission</h4>
++                    <p>
++                        To provide the most reliable and cost-effective waste removal and grab hire services in West Lothian 
++                        and surrounding areas. We believe in making waste management simple - "Skip The Hassle, We'll Grab It."
++                    </p>
++                </div>
++                
++                <div class="timeline">
++                    <h4>Why Choose Us?</h4>
++                    <ul style="margin-top: 15px; padding-left: 20px;">
++                        <li><strong>Fully Licensed:</strong> All necessary permits and waste carrier licenses</li>
++                        <li><strong>Insured:</strong> Comprehensive insurance coverage for peace of mind</li>
++                        <li><strong>Professional:</strong> Uniformed, courteous, and experienced operators</li>
++                        <li><strong>Flexible:</strong> Same-day service and emergency callouts available</li>
++                        <li><strong>Competitive:</strong> Fair, transparent pricing with no hidden costs</li>
++                        <li><strong>Environmental:</strong> Committed to responsible waste disposal and recycling</li>
++                    </ul>
++                </div>
++            </section>
++
++            <!-- Customer Portal Section -->
++            <section id="portal" class="section">
++                <h2>Customer Portal</h2>
++                
++                <div class="timeline">
++                    <h4>Track Your Service</h4>
++                    <p>
++                        Our customer portal allows you to manage your bookings, track collection schedules, 
++                        and access important documentation including waste transfer notes and invoices.
++                    </p>
++                </div>
++
++                <div class="timeline">
++                    <h4>Online Booking</h4>
++                    <p>
++                        Book your grab hire service online 24/7. Simply select your preferred date and time, 
++                        specify your requirements, and we'll confirm your booking promptly.
++                    </p>
++                </div>
++
++                <div class="timeline">
++                    <h4>Account Management</h4>
++                    <p>
++                        Regular customers can set up accounts for streamlined booking, automatic invoicing, 
++                        and access to preferential rates for frequent users.
++                    </p>
++                </div>
++
++                <div style="text-align: center; margin-top: 40px;">
++                    <a href="#" onclick="showSection('contact'); return false;" class="cta-button">Contact Us to Set Up Account</a>
++                </div>
++            </section>
++
++            <!-- Contact Section -->
++            <section id="contact" class="section">
++                <h2>Get Your Free Quote</h2>
++                
++                <div class="contact-options">
++                    <div class="contact-card">
++                        <h3>📞 Call Now</h3>
++                        <p>Speak directly with our team for immediate quotes and same-day service availability.</p>
++                        <a href="tel:01506332088" class="contact-btn">01506 332088</a>
++                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
++                            <strong>Hours:</strong> Mon-Fri 8AM-5PM | Sat 8AM-1PM
++                        </p>
++                    </div>
++                    
++                    <div class="contact-card">
++                        <h3>📧 Email Quote</h3>
++                        <p>Send us your project details and we'll provide a detailed quote within 2 hours.</p>
++                        <a href="mailto:sales@wlgrabhire.com?subject=Quote Request - West Lothian Grab Hire&body=Hello,%0D%0A%0D%0APlease provide a quote for the following:%0D%0A%0D%0AName:%0D%0APhone:%0D%0AService Required:%0D%0ALocation (with postcode):%0D%0APreferred Date:%0D%0AProject Details:%0D%0A%0D%0AThank you!" class="contact-btn">📧 Email Quote Request</a>
++                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
++                            <strong>Response:</strong> Within 2 hours during business hours
++                        </p>
++                    </div>
++                    
++                    <div class="contact-card whatsapp-card">
++                        <h3>💬 WhatsApp</h3>
++                        <p>Get instant responses and quick quotes through WhatsApp messaging.</p>
++                        <a href="https://wa.me/447734146145?text=Hi%20West%20Lothian%20Grab%20Hire,%20I%20need%20a%20quote%20for%20waste%20removal.%20Please%20contact%20me." target="_blank" class="contact-btn whatsapp-btn">💬 WhatsApp Quote</a>
++                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
++                            <strong>Number:</strong> 07734 146145<br>
++                            <strong>Response:</strong> Usually within 15 minutes
++                        </p>
++                    </div>
++                </div>
++                
++                <div style="background-color: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-top: 40px; text-align: center;">
++                    <h3 style="color: #ff6b35; margin-bottom: 20px;">Service Areas</h3>
++                    <p style="font-size: 1.1rem; margin-bottom: 15px;">
++                        <strong>Primary Areas:</strong> West Lothian, Edinburgh, Falkirk, Stirling
++                    </p>
++                    <p style="font-size: 1rem; color: #666;">
++                        We also serve surrounding areas - call to check availability in your location
++                    </p>
++                </div>
++            </section>
++        </div>
++    </main>
++
++    <!-- Footer -->
++    <footer>
++        <div class="container">
++            <div class="footer-content">
++                <div class="footer-section">
++                    <h3>West Lothian Grab Hire Ltd</h3>
++                    <p>Professional waste removal and grab hire services across West Lothian and surrounding areas.</p>
++                    <p><strong>Skip The Hassle, We'll Grab It</strong></p>
++                </div>
++                
++                <div class="footer-section">
++                    <h3>Contact Information</h3>
++                    <ul>
++                        <li>📞 Phone: <a href="tel:01506332088" style="color: #ff6b35; text-decoration: none;">01506 332088</a></li>
++                        <li>📧 Email: <a href="mailto:sales@wlgrabhire.com" style="color: #ff6b35; text-decoration: none;">sales@wlgrabhire.com</a></li>
++                        <li>💬 WhatsApp: <a href="https://wa.me/447734146145" style="color: #ff6b35; text-decoration: none;">07734 146145</a></li>
++                        <li>🕒 Hours: Mon-Fri 8AM-5PM, Sat 8AM-1PM</li>
++                        <li>📍 Serving West Lothian & Surrounding Areas</li>
++                    </ul>
++                </div>
++                
++                <div class="footer-section">
++                    <h3>Our Services</h3>
++                    <ul>
++                        <li>Grab Hire & Waste Collection</li>
++                        <li>Construction Waste Removal</li>
++                        <li>Domestic Clearance</li>
++                        <li>Aggregates & Materials Supply</li>
++                        <li>Commercial Waste Services</li>
++                    </ul>
++                </div>
++                
++                <div class="footer-section">
++                    <h3>Legal Information</h3>
++                    <ul>
++                        <li><strong>SEPA Carriers Licence:</strong> WCR/R/3021724</li>
++                        <li><strong>Company Number:</strong> SC862731</li>
++                        <li>Fully Insured & Licensed</li>
++                        <li>Environmental Compliance</li>
++                    </ul>
++                </div>
++            </div>
++            
++            </p><div class="footer-bottom"
++  <p>2025 West Lothian Grab Hire Ltd. All rights reserved. | SEPA Carriers Licence: WCR/R/3021724 | Company Number: SC862731 | </p>™ West Lothian Grab Hire Ltd. Website created by Graeme Jack.</p>
++</div>
++            </div>
++        </div>
++    </footer>
++
++    <script>
++        function showSection(sectionId) {
++            // Hide all sections
++            var sections = document.querySelectorAll('.section');
++            for (var i = 0; i < sections.length; i++) {
++                sections[i].classList.remove('active');
++            }
++            
++            // Remove active class from all nav links
++            var navLinks = document.querySelectorAll('.nav-link');
++            for (var i = 0; i < navLinks.length; i++) {
++                navLinks[i].classList.remove('active');
++            }
++            
++            // Show selected section
++            document.getElementById(sectionId).classList.add('active');
++            
++            // Add active class to clicked nav link
++            var clickedLinks = document.querySelectorAll('[onclick*="' + sectionId + '"]');
++            if (clickedLinks.length > 0) {
++                clickedLinks[0].classList.add('active');
++            }
++            
++            // Scroll to top
++            window.scrollTo(0, 0);
++        }
++    </script>
++</body>
++</html>
++
